@@ -1,0 +1,40 @@
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+tv_shows = pd.read_csv(r"C:\Users\Kallol Mukherjee\Downloads\tv_shows.csv")
+print(tv_shows)
+
+
+import plotly.express as px
+from plotly.subplots import make_subplots
+import matplotlib.pyplot as plt
+tv_shows.head()
+tv_shows.drop_duplicates(subset='Title',
+                         keep='first',inplace=True)
+print(tv_shows.drop_duplicates)
+
+plt.figure(figsize=(5,5))
+ax=sns.countplot(x=tv_shows['Age'])
+ax.set_title(label = "view count with respect to age group", fontsize = 16)
+print(plt.show())
+left = [1, 2,3,4]
+height = [1971, 1621,1831,351]
+tick_label = ['Netflix', 'Hulu','Prime Video','Disney+']
+plt.bar(left, height, tick_label=tick_label,
+        width=0.8, color=['red', 'green','blue','yellow'])
+plt.xlabel('Streaming on')
+plt.ylabel('Count')
+plt.title('Quantity of tv shows')
+plt.show()
+tv_shows['Year'].value_counts().plot(kind='pie')
+plt.title("Number of shows released in a year")
+print(plt.show())
+print(tv_shows['Year'].value_counts())
+sns.scatterplot(data = tv_shows, x = "Age", y = "IMDb")
+plt.show()
+print(plt.show())
+print(tv_shows['Year'].value_counts())
+sns.scatterplot(data = tv_shows, x = "Age", y = "Rotten Tomatoes")
+plt.show()
+print(plt.show())
